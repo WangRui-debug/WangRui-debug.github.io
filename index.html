@@ -3,44 +3,390 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rui Wang — CV</title>
-  <meta name="description" content="Rui Wang (王锐) — Research CV" />
+  <title>Wang Rui — CV</title>
+  <meta name="description" content="Wang Rui — Research CV and profile" />
   <style>
-    :root { --border:#e6e6e6; --text:#111; --muted:#555; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; margin: 0; color: var(--text); }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 40px 18px 28px; }
-    h1 { margin: 0 0 6px; font-size: 28px; }
-    .sub { margin: 0 0 18px; color: var(--muted); }
-    .row { display:flex; gap:10px; flex-wrap: wrap; align-items: center; margin: 10px 0 18px; }
-    .btn {
-      display:inline-block; padding:10px 14px; border: 1px solid var(--border);
-      border-radius: 12px; background: #fff; color: var(--text); text-decoration: none;
+    :root {
+      --bg: #0b0f19;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --line: rgba(255,255,255,0.14);
+      --accent: #7dd3fc;
+      --accent2: #a78bfa;
+      --shadow: 0 18px 50px rgba(0,0,0,0.35);
     }
-    .btn:hover { border-color:#cfcfcf; }
-    .links a { color: var(--text); text-decoration: none; border-bottom: 1px dashed #ccc; }
-    .links a:hover { border-bottom-color: var(--text); }
-    iframe { width: 100%; height: 78vh; border: 1px solid var(--border); border-radius: 14px; }
-    footer { margin-top: 14px; color: var(--muted); font-size: 13px; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(125,211,252,0.18), transparent 60%),
+                  radial-gradient(900px 500px at 80% 10%, rgba(167,139,250,0.16), transparent 60%),
+                  radial-gradient(1200px 800px at 50% 100%, rgba(34,197,94,0.08), transparent 65%),
+                  var(--bg);
+      color: var(--text);
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 36px 18px 64px; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; padding: 10px 12px; border: 1px solid var(--line);
+      background: rgba(0,0,0,0.18); border-radius: 16px; backdrop-filter: blur(10px);
+    }
+    .brand { display:flex; gap:10px; align-items:center; }
+    .dot {
+      width: 10px; height: 10px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(125,211,252,0.12);
+    }
+    .nav { display:flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav a {
+      text-decoration: none; color: var(--muted);
+      padding: 6px 10px; border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    .nav a:hover { color: var(--text); border-color: var(--line); background: rgba(255,255,255,0.04); }
+    .hero { margin-top: 18px; padding: 26px 22px; border-radius: 22px; border: 1px solid var(--line); background: var(--card); box-shadow: var(--shadow); }
+    .hero h1 { margin: 0; font-size: 40px; letter-spacing: -0.02em; }
+    .hero .sub { margin-top: 8px; color: var(--muted); font-size: 16px; line-height: 1.6; }
+    .chips { display:flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+    .chip {
+      font-size: 13px; color: rgba(255,255,255,0.78);
+      padding: 6px 10px; border-radius: 999px;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.03);
+    }
+    .cta { display:flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .btn {
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px; border-radius: 14px;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.04);
+      text-decoration:none; color: var(--text);
+    }
+    .btn:hover { background: rgba(255,255,255,0.08); }
+    .btn.primary {
+      border-color: rgba(125,211,252,0.35);
+      background: linear-gradient(135deg, rgba(125,211,252,0.16), rgba(167,139,250,0.12));
+    }
+    .grid { display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 14px; margin-top: 14px; }
+    @media (max-width: 920px) { .grid { grid-template-columns: 1fr; } .hero h1 { font-size: 34px; } }
+    .card { border: 1px solid var(--line); background: var(--card); border-radius: 20px; padding: 18px 18px; }
+    .card h2 { margin: 0 0 10px; font-size: 18px; letter-spacing: -0.01em; }
+    .muted { color: var(--muted); }
+    .kvs { display:grid; grid-template-columns: 110px 1fr; gap: 8px 12px; font-size: 14px; }
+    .kvs .k { color: var(--muted); }
+    .sec { margin-top: 18px; }
+    .sec h2 { margin: 0 0 10px; font-size: 20px; letter-spacing: -0.01em; }
+    .timeline {
+      border: 1px solid var(--line);
+      border-radius: 20px; overflow: hidden;
+      background: rgba(255,255,255,0.03);
+    }
+    .item {
+      display:grid; grid-template-columns: 170px 1fr;
+      gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--line);
+    }
+    .item:last-child { border-bottom: none; }
+    .when { color: var(--muted); font-size: 13px; padding-top: 2px; }
+    .title { font-weight: 650; }
+    .meta { margin-top: 2px; color: rgba(255,255,255,0.78); font-size: 13px; }
+    .desc { margin-top: 8px; color: var(--muted); font-size: 14px; line-height: 1.55; }
+    @media (max-width: 640px) { .item { grid-template-columns: 1fr; } .when { padding-top: 0; } }
+    .pub {
+      border: 1px solid var(--line); border-radius: 20px;
+      background: rgba(255,255,255,0.03); padding: 14px 16px;
+    }
+    .pub h3 { margin: 2px 0 10px; font-size: 16px; }
+    .pub-year-h { color: var(--muted); font-size: 13px; margin-top: 10px; }
+    ul.pub-list { margin: 6px 0 0 18px; padding: 0; }
+    ul.pub-list li { margin: 6px 0; color: rgba(255,255,255,0.82); line-height: 1.55; }
+    footer {
+      margin-top: 26px; color: var(--muted); font-size: 13px;
+      display:flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+      border-top: 1px solid var(--line); padding-top: 16px;
+    }
+    code.inline { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono"; font-size: 12px; padding: 2px 6px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); }
+    @media print {
+      body { background: #fff; color: #111; }
+      .topbar, .cta, footer { display: none !important; }
+      .card, .hero, .timeline, .pub { box-shadow: none; background: #fff; border-color: #ddd; }
+      .muted, .when, .desc { color: #333 !important; }
+      a { text-decoration: none; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Rui Wang <span style="font-weight:400; color:var(--muted);">（王锐）</span></h1>
-    <p class="sub">Speech signal processing · Spatial audio · Speech enhancement/separation · Target speaker extraction</p>
-
-    <div class="row">
-      <a class="btn" href="cv.pdf" target="_blank" rel="noopener">Open / Download CV (PDF)</a>
-      <span class="links">
-        Scholar: <a href="https://scholar.google.com/citations?user=N3UBXW8AAAAJ&hl=en&authuser=2" target="_blank" rel="noopener">Google Scholar</a>
-        &nbsp;·&nbsp;
-        LinkedIn: <a href="https://www.linkedin.com/in/rui-wang-aa2b0619b/" target="_blank" rel="noopener">Profile</a>
-      </span>
+    <div class="topbar">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>
+          <div style="font-weight:700">Wang Rui</div>
+          <div class="muted" style="font-size:12px">CV · Speech / Spatial audio</div>
+        </div>
+      </div>
+      <div class="nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+        <a href="#download">Download</a>
+      </div>
     </div>
 
-    <iframe src="cv.pdf" title="CV PDF"></iframe>
+    <div class="hero" id="about">
+      <h1>Wang Rui <span class="muted" style="font-weight:500">（王锐）</span></h1>
+      <div class="sub">Speech signal processing · Spatial audio · Speech enhancement/separation · Target speaker extraction</div>
+      <div class="chips">
+        <span class="chip">Spatial audio, Speech signal processing, Speech enhancement/separation, Target speaker extrac- tion, Deep learning</span>
+        <span class="chip">Tools: Python, Shell, C#, Matlab</span>
+        <span class="chip">Languages: Chinese, Japanese, English</span>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+        <a class='btn' href='mailto:rui.wang@g.sp.m.is.nagoya-u.ac.jp'>Email</a>
+        <a class='btn' href='https://scholar.google.com/citations?user=N3UBXW8AAAAJ&amp;hl=en&amp;authuser=2' target='_blank' rel='noopener'>Google Scholar</a>
+        <a class='btn' href='https://www.linkedin.com/in/rui-wang-' target='_blank' rel='noopener'>LinkedIn</a>
+        <a class="btn" href="https://github.com/WangRui-debug" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Summary</h2>
+        <div class="muted" style="line-height:1.65">I have several years of research experience in speech signal processing, focusing on spatial hearing and speech
+enhancement in challenging environments. At JAIST, I worked on monaural 3D sound localization using HRTF
+features under Prof. Masashi Unoki. For my Ph.D. at Nagoya University with Prof. Tomoki Toda, my main topic
+was directional target speaker extraction (TSE) in noisy and underdetermined conditions, resulting in publica-
+tions such as TASLP. My future goal is to extend statistical signal processing (such as independent/low-rank
+and spatial covariance modeling) by coupling it with DNN priors and latest LLM-based context, aiming for
+identifiable, sample-efficient, and real-time/low-latency streaming speech enhancement.</div>
+      </div>
+      <div class="card">
+        <h2>Quick info</h2>
+        <div class="kvs">
+          <div class="k">Email</div><div>rui.wang@g.sp.m.is.nagoya-u.ac.jp</div>
+          <div class="k">Research</div><div>Spatial audio, Speech signal processing, Speech enhancement/separation, Target speaker extrac- tion, Deep learning</div>
+          <div class="k">Tools</div><div>Python, Shell, C#, Matlab</div>
+          <div class="k">Languages</div><div>Chinese, Japanese, English</div>
+        </div>
+        <div class="muted" style="margin-top:12px; font-size:12px">
+          Tip: keep your birth date off the public page if you don’t need it.
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" id="experience">
+      <h2>Work experience</h2>
+      <div class="timeline">
+        
+        <div class="item">
+          <div class="when">2021.8 - 2021.10</div>
+          <div class="what">
+            <div class="title">Summer internship</div>
+            <div class="meta">National Institute of Information and Communications Technology (NICT), ASTREC · <span class="muted">Kyoto, Japan</span></div>
+            <div class="desc">Research on robust speech recognition</div>
+          </div>
+        </div>
+        
+
+        <div class="item">
+          <div class="when">2022.3 - 2022.4</div>
+          <div class="what">
+            <div class="title">Winter internship</div>
+            <div class="meta">Nippon Telegraph and Telephone Corporation (NTT), CS lab · <span class="muted">Tokyo, Japan</span></div>
+            <div class="desc">Research on robust speech separation</div>
+          </div>
+        </div>
+        
+
+        <div class="item">
+          <div class="when">2025.5 -</div>
+          <div class="what">
+            <div class="title">Research Engineer</div>
+            <div class="meta">Midea Group, AI Research Institute · <span class="muted">Shanghai, China</span></div>
+            <div class="desc">Research on robust multi-task speech interaction system in challenge environments</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="sec" id="education">
+      <h2>Education & Research</h2>
+      <div class="timeline">
+        
+        <div class="item">
+          <div class="when">2012.9 - 2016.6</div>
+          <div class="what">
+            <div class="title">BS degree</div>
+            <div class="meta">China Jiliang University · <span class="muted">Hangzhou, China</span></div>
+            <div class="desc">Measurement and Control Technology and Instruments</div>
+          </div>
+        </div>
+        
+
+        <div class="item">
+          <div class="when">2016.9 - 2018.8</div>
+          <div class="what">
+            <div class="title">Master’s course</div>
+            <div class="meta">National Institute of Metrology, China · <span class="muted">Beijing, China</span></div>
+            <div class="desc">Fluid Mechanics (Dropout due to lack of interest)</div>
+          </div>
+        </div>
+        
+
+        <div class="item">
+          <div class="when">2018.10 - 2021.3</div>
+          <div class="what">
+            <div class="title">Master’s degree</div>
+            <div class="meta">Japan Advanced Institute of Science and Technology (JAIST) · <span class="muted">Ishikawa, Japan</span></div>
+            <div class="desc">Akagi &amp; Unoki Laboratory of speech</div>
+          </div>
+        </div>
+        
+
+        <div class="item">
+          <div class="when">2021.4 - 2025.3</div>
+          <div class="what">
+            <div class="title">Doctor’s degree</div>
+            <div class="meta">Nagoya University · <span class="muted">Nagoya, Japan</span></div>
+            <div class="desc">Toda Laboratory of speech</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="sec" id="publications">
+      <h2>Publications</h2>
+      <div class="pub">
+        <h3>Journal papers</h3>
+        
+        <div class="pub-year">
+          <div class="pub-year-h">2023</div>
+          <ul class="pub-list"><li>R. Wang, B. N. Khanh, D. Morikawa, and M. Unoki, &quot;Method of estimating three dimensional direction-of-arrival based on monaural modulation spectrum,&quot; Applied Acoustics, 203, 109215, 9 pages, Feb. 2023.</li></ul>
+        </div>
+        
+
+        <div class="pub-year">
+          <div class="pub-year-h">2024</div>
+          <ul class="pub-list"><li>R. Wang, L. Li, T. Toda, &quot;Dual-channel target speaker extraction based on conditional variational autoencoder and directional information,&quot; IEEE/ACM Transactions on Audio, Speech and Language Processing, Vol. 32, pp. 1968-1979, Mar. 2024.</li></ul>
+        </div>
+        
+
+        <div class="pub-year">
+          <div class="pub-year-h">2024</div>
+          <ul class="pub-list"><li>R. Wang, T. Fujimura, and T. Toda, “Target Speaker Extraction under Noisy Underdetermined Conditions Using Conditional Variational Autoencoder, Global Style Token, and Neural Postfilter,” APSIPA Transactions on Signal and Information Processing, Vol. 14, No. 1, e2, pp. 1-26, Jan. 2025.</li></ul>
+        </div>
+        
+      </div>
+      <div style="height:12px"></div>
+      <div class="pub">
+        <h3>Conference papers</h3>
+        
+        <div class="pub-year">
+          <div class="pub-year-h">2021</div>
+          <ul class="pub-list"><li>N. Li, L. Wang, M. Unoki, S. Li, R. Wang, Me. Ge, J. Dang, “Robust Voice Activity Detection Using a Masked Auditory Encoder Based Convolutional Neural Network,” in 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pp. 6828–6832, Jun. 2021.</li></ul>
+        </div>
+        
+
+        <div class="pub-year">
+          <div class="pub-year-h">2021</div>
+          <ul class="pub-list"><li>R. Wang, B. N. Khanh, D. Morikawa, and M. Unoki, “Method of Estimating 3D DOA based on Monaural Modulation Spectrum,”In: 2021 RISP International Workshop on Nonlinear Circuits, Communications and Signal Processing (NCSP), pp. 137-140, Mar. 2021.</li></ul>
+        </div>
+        
+
+        <div class="pub-year">
+          <div class="pub-year-h">2022</div>
+          <ul class="pub-list"><li>R. Wang, L. Li, and T. Tomoki, “Direction-aware target speaker extraction with a dualchannel system based on conditional variational autoencoders under underdetermined conditions,” in Proc. IEEE Asia-Pacific Signal Inf. Process. Assoc. Annu. Summit Conf., 2022, pp. 347–354.</li></ul>
+        </div>
+        
+
+        <div class="pub-year">
+          <div class="pub-year-h">2023</div>
+          <ul class="pub-list"><li>R. Wang, T. Toda, &quot;Directional target speaker extraction under noisy underdetermined conditions through conditional variational autoencoder with global style tokens,&quot; Proc. IEEE WASPAA, New Paltz, USA, Oct. 2023, pp. 1–5.</li></ul>
+        </div>
+        
+      </div>
+      <div style="height:12px"></div>
+      <div class="pub">
+        <h3>Domestic papers</h3>
+        
+        <div class="pub-year">
+          <div class="pub-year-h">2021</div>
+          <ul class="pub-list"><li>R. Wang, B. N. Khanh, D. Morikawa, and M. Unoki, “Method of estimating DOA based on monaural modulation spectrum,” 日本音学会春季研究表会演文集, 3-1-21, pp. 321-324, Mar. 2021.</li></ul>
+        </div>
+        
+
+        <div class="pub-year">
+          <div class="pub-year-h">2022</div>
+          <ul class="pub-list"><li>R. Wang, L. Li, T. Toda, &quot;Target speaker extraction based on conditional variational autoencoder and directional information in underdetermined condition&quot;, Technical Report of IEICE, Vol. 121, No. 383, EA2021-76, pp. 76-81, Mar. 2022.</li></ul>
+        </div>
+        
+
+        <div class="pub-year">
+          <div class="pub-year-h">2022</div>
+          <ul class="pub-list"><li>R. Wang, Li Li, and T. Toda, “Direction-aware target speaker extraction with conditional variational autoencoders and its sensitivity to direction-of-arrival error, ” 日本音学会 春季研究表会演文集, 2-2-6, pp. 195-196, Sep. 2022.</li></ul>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="sec" id="awards">
+      <h2>Awards & Under review</h2>
+      <div class="pub">
+        <h3>Awards</h3>
+        
+        <div class="pub-year">
+          <div class="pub-year-h">2021</div>
+          <ul class="pub-list"><li>RISP International Workshop on Nonlinear Circuits, Communications and Signal Processing (NCSP)-Student paper award. Publications &amp; Awards</li></ul>
+        </div>
+        
+
+        <div class="pub-year">
+          <div class="pub-year-h">2021</div>
+          <ul class="pub-list"><li>Acoustical Society of Japan (ASJ)-Student paper award (Hokuriku branch).</li></ul>
+        </div>
+        
+
+        <div class="pub-year">
+          <div class="pub-year-h">2022</div>
+          <ul class="pub-list"><li>Acoustical Society of Japan (ASJ)-Student paper award.</li></ul>
+        </div>
+        
+
+        <div class="pub-year">
+          <div class="pub-year-h">2023</div>
+          <ul class="pub-list"><li>IEEE WASPAA 2023 Travel Grants.</li></ul>
+        </div>
+        
+        <div style="height:10px"></div>
+        <h3>Under review</h3>
+        
+        <div class="pub-year">
+          <div class="pub-year-h">2025</div>
+          <ul class="pub-list"><li>R. Wang et al., &quot;End-to-End Direction-Aware Keyword Spotting with Spatial Priors in Noisy Environments,&quot; ICASSP 2026.</li></ul>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="sec" id="download">
+      <h2>Download</h2>
+      <div class="card">
+        <div class="muted" style="line-height:1.7">
+          • PDF version: <a href="cv.pdf" target="_blank" rel="noopener">cv.pdf</a><br/>
+          • Share: <code class="inline">https://wangrui-debug.github.io</code><br/>
+          • Direct PDF: <code class="inline">https://wangrui-debug.github.io/cv.pdf</code>
+        </div>
+      </div>
+    </div>
 
     <footer>
-      Tip: share this page: <strong>https://wangrui-debug.github.io</strong> · direct PDF: <strong>https://wangrui-debug.github.io/cv.pdf</strong>
+      <div>© Wang Rui · Hosted on GitHub Pages</div>
+      <div class="muted">To update: replace <code class="inline">index.html</code> and <code class="inline">cv.pdf</code> in your repo.</div>
     </footer>
   </div>
 </body>
