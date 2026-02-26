@@ -2,7 +2,7 @@
 
 This folder contains:
 - `index.html` — simple homepage that previews and links your CV PDF
-- `cv.pdf` — your CV (renamed)
+- `cv.pdf` — personal CV (renamed)
 
 ## How to publish (GitHub Pages)
 
@@ -19,7 +19,7 @@ This folder contains:
    - Branch: **main** (or master) / folder: **root**
    - Save
 
-4) Your site:
+4) Personal site:
    - https://wangrui-debug.github.io
    - Direct PDF: https://wangrui-debug.github.io/cv.pdf
 
